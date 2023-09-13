@@ -8,6 +8,12 @@
         <meta name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <!-- fontAwesome -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         <!-- Bootstrap CSS v5.2.1 -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
@@ -29,7 +35,9 @@
                     <div class="row">
                         <div class="col">
                             <ul>
-                                <li :class="thing.done ? 'text-decoration-line-through' : '' " v-for="thing in list">{{thing.text}}</li>
+                                <li v-for="(thing,index) in list" :class="thing.done ? 'text-decoration-line-through' : '' ">
+                                    {{thing.text}} <i @click="removeItem(index)" class="fa-solid fa-x"></i>
+                                </li>                                
                             </ul>
                         </div>
                     </div>

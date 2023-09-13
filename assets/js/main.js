@@ -37,6 +37,12 @@ const { createApp } = Vue
         ]
 
     }
+    },
+    methods : {
+        removeItem(index) {
+            this.list.splice(index,1);
+            console.log(this.list);
+        },
     }
   }).mount('#app')
 
