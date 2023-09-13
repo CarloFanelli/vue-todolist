@@ -9,6 +9,9 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
+
+        checkEmpty : false,
+
         list : [
             {
                 text : 'comprare l\'acqua',
@@ -45,10 +48,19 @@ const { createApp } = Vue
         },
 
         addThing(text){
-            this.list.push({text , done : false});
+
+            if (text != undefined ) {
+                
+                this.list.unshift({text , done : false});
+                
+            } else{
+
+                this.checkEmpty = true;
+
+            }
+
             console.log(text);
             console.log(this.list);
         }
     }
   }).mount('#app')
-
