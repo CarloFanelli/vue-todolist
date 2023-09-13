@@ -12,7 +12,7 @@ const { createApp } = Vue
 
         checkEmpty : false,
 
-        //newThing : "",
+        newThing : "",
 
         list : [
             {
@@ -51,11 +51,13 @@ const { createApp } = Vue
 
         addThing(newThing){
 
-            if (newThing !== "" || newThing !== undefined ) {
+            if (newThing !== "") {
                 
                 this.list.unshift({text : newThing , done : false});
 
                 this.newThing = ''
+
+                this.checkEmpty = false;
                 
             } else{
 
