@@ -20,7 +20,7 @@ const { createApp } = Vue
             },
             {
                 text : 'dare da bere alle piante',
-                done : false
+                done : true
             },
             {
                 text : 'preparare una torta',
@@ -32,7 +32,7 @@ const { createApp } = Vue
             },
             {
                 text : 'portare fuori il cane',
-                done : false
+                done : true
             },
         ]
 
