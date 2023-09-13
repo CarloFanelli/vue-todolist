@@ -34,10 +34,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <form @submit.prevent="addThing(list.text)">
-                                <label for="new-thing">Aggiungi un attività</label>
-                                <input type="text" id="newThing"
-                                    v-model="list.text">
+                            <form @submit.prevent="addThing(newThing)">
+                                <label for="new-Thing">Aggiungi un attività</label>
+                                <input type="text" id="new-Thing"
+                                    v-model="newThing">
                                 
                                 <button type="submit">AGGIUNGI</button>
                             </form>
