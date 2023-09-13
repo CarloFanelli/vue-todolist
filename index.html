@@ -34,9 +34,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col">
+                            <form @submit.prevent="addThing(list.text)">
+                                <label for="new-thing">Aggiungi un attività</label>
+                                <input type="text" id="newThing" v-model="list.text">
+                                <button type="submit">AGGIUNGI</button>
+                            </form>
+                        </div>
+                        <div class="col">
                             <ul>
                                 <li v-for="(thing,index) in list" :class="thing.done ? 'text-decoration-line-through' : '' ">
-                                    {{thing.text}} <i @click="removeItem(index)" class="fa-solid fa-x"></i>
+                                    {{thing.text}} <i @click="removeItem(index)" class="text-danger fa-solid fa-x"></i>
                                 </li>                                
                             </ul>
                         </div>

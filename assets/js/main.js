@@ -43,6 +43,12 @@ const { createApp } = Vue
             this.list.splice(index,1);
             console.log(this.list);
         },
+
+        addThing(text){
+            this.list.push({text , done : false});
+            console.log(text);
+            console.log(this.list);
+        }
     }
   }).mount('#app')
 
