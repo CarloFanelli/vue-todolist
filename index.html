@@ -21,37 +21,63 @@
             integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
             crossorigin="anonymous">
 
+            <link rel="stylesheet" href="./assets/css/style.css">
+
     </head>
 
-    <body>
+    <body class="bg-secondary">
         <div id="app">
 
             <header>
-                <!-- place navbar here -->
+                <nav class="navbar navbar-expand navbar-light bg-light shadow">
+                    <div class="nav navbar-nav">
+                        <a class="nav-item nav-link active" href="#"
+                            aria-current="page"> <h1>my to do list</h1> <span
+                                class="visually-hidden">(current)</span></a>
+                    </div>
+                </nav>
             </header>
             <main>
 
-                <div class="container">
+                <div class="container my-5">
                     <div class="row">
-                        <div class="col">
-                            <form @submit.prevent="addThing(newThing)">
-                                <label for="new-Thing">Aggiungi un attività</label>
+                        <div class="col-5 p-1 d-flex align-items-center justify-content-center">
+                            <form @submit.prevent="addThing(newThing)" class="d-flex flex-column w-75">
                                 <input type="text" id="new-Thing"
-                                    v-model="newThing">
-                                
-                                <button type="submit">AGGIUNGI</button>
+                                    v-model="newThing" placeholder="Aggiungi un attività" class="" >
+
+                                <button class="my-btn my-4" type="submit">AGGIUNGI</button>
+                            <h3 v-if="checkEmpty" class="text-warning text-center">Non
+                                lasciare il campo vuoto</h3>
                             </form>
-                            <p v-if="checkEmpty" class="text-danger">Non lasciare il campo vuoto</p>
+
                         </div>
-                        <div class="col">
-                            <ul>
-                                <li v-for="(thing,index) in list"
-                                    :class="thing.done ? 'text-decoration-line-through' : '' ">
-                                    {{thing.text}} <i @click="removeItem(index)"
-                                        class="text-danger fa-solid fa-x"></i>
-                                </li>
-                            </ul>
+
+                        <div class="col-6">
+
+                            <div class="card">
+                                <div class="card-header shadow">
+                                    <h3
+                                        class="text-info text-uppercase text-center">cosa
+                                        resta da fare?</h3>
+                                </div>
+                                <div class="card-body">
+
+                                    <ul>
+                                        <li v-for="(thing,index) in list"
+                                            :class="thing.done ? 'text-decoration-line-through' : '' ">
+                                            {{thing.text}} <i
+                                                @click="removeItem(index)"
+                                                class="text-danger fa-solid fa-x"></i><i
+                                                @click="thingDone(index)"
+                                                class="fa-solid fa-check text-success"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
                         </div>
+
                     </div>
                 </div>
 

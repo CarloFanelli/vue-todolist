@@ -68,6 +68,14 @@ const { createApp } = Vue
             console.log(newThing);
             console.log(this.list);
         },
+
+        thingDone(index){
+
+            this.list[index].done = true;
+
+            console.log(this.list);
+
+        }
     
     }
   }).mount('#app')
